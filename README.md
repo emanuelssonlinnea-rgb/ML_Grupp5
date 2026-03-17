@@ -1,26 +1,3 @@
-1)hur man kör projektet
-
-
-2) ert kravkort (stakeholder + prioritet, 2–3 meningar)
-
-
-3) er strategi (5–10 rader)
-
-
-
-4) ansvarsfördelning: vem ansvarade för vad
-
-Ansvarsområden:
-1. Data & EDA - Isabel
-2. Pipeline & preprocessing - Irene
-3. Modelljämförelse - Nora
-4. Optimering - Ummulbanin
-5. Threshold/prioritering - Abdullahi
-6. Pitch & risker - Linnéa  
-
-
-
-
 # Marketplace Safety - Prioritering av misstänkta annonser och meddelanden
 
 Ett maskininlärningsprojekt som bygger ett beslutsstöd för att hjälpa ett Trust & Safety-team att prioritera granskning av misstänkta annonser och meddelanden på en marknadsplats-app.
@@ -30,12 +7,25 @@ Plattformen drabbas varje vecka av ett mindre antal problematiska aktiviteter (b
 Målet är att bygga en klassificeringsmodell som hjälper teamet prioritera vad som granskas först. 
 
 ## Kravkort
-Lösningen pitchas till **[ 🤫 ATT FYLLAS I PÅ SLUTET ]**
 
+**Stakeholder:** Fredrik, COO/Finance
+
+Fredrik vill ha ett beslutsunderlag, inte en teknisk show. Han ser två kostnader: granskningstid och missade bedrägerier. Han accepterar att ni inte kan få allt, men han
+kräver att ni visar konsekvenserna av era val och väljer en tydlig kompromiss. Om ni bara säger “vi tog den som gav högst score” kommer han inte köpa det.
 
 ## Strategi
-**[ ATT FYLLAS I ]**
 
+Vi inledde arbetet med att undersöka datan för att skapa oss en tydlig bild av dess karaktär och egenskaper, vilket lade grunden för välgrundade beslut i de efterföljande stegen.
+
+Därefter delades datan upp i tränings- och testset med en fördelning på 80/20. För att säkerställa en säker och smidig hantering av prediktioner valde vi att arbeta med pipelines.
+
+Vi jämförde tre modeller – en baseline modell, Logistic Regression och Random Forest – vilka utvärderades med 5-fold cross-validation och F1-score som prestationsmått.
+
+En av modellerna valdes sedan ut för vidare optimering med hjälp av GridSearchCV. Valet av hyperparametrar baserades på kravspecifikationen, med målet att uppnå en balanserad avvägning mellan kostnad och risk, samt mellan falskt positiva och falskt negativa utfall.
+
+Vi valde även att justera beslutströskeln (threshold) och jämförde detta med ett Top-N-angreppssätt, i syfte att uppnå en rimlig balans mellan kostnad och risk. Vid fastställandet av threshold utgick vi från tre olika scenarier och landade i en lägre nivå än standardvärdet (0.35). Detta gjordes för att uppnå en hanterbar arbetsbelastning i kombination med en kontrollerad risknivå.
+
+Avslutningsvis genomförde vi ett sluttest för att få en uppfattning om hur väl modellen kan förväntas prestera i en verklig tillämpning.
 
 ## Arbetsfördelning
 
